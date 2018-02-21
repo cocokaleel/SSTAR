@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://webgazer.cs.brown.edu/demo.html? -->
+<html><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <title>Game</title>
+        <link rel="stylesheet" type="text/css" href="./WebGazer Demo_files/style.css">
+        <link rel="stylesheet" type="text/css" href="./WebGazer Demo_files/sweetalert.css"> 
+        <link rel="stylesheet" href="./WebGazer Demo_files/bootstrap.min.css">
+    <style>@media print {#ghostery-purple-box {display:none !important}}</style><style 
+    id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    height: 100%;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+    .bg {
+    /* The image used */
+    background-image: url("http://freevector.co/wp-content/uploads/2013/03/64945-cartoon-eyes.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    #gameOverlay {
+    		position: fixed;
+    		display: none;
+    		width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background-color: rgba(0,0,0,0.5);
+	    z-index: 2;
+	    cursor: pointer;
+}
+}
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<div id="gameOverlay" onclick="gameOff()"></div> 
+    <body lang="en-US" link="#0000ff" dir="LTR">
+      <canvas id="plotting_canvas" width="150" height="659" style="cursor: crosshair; position: fixed;"></canvas>
+        <script src="./WebGazer Demo_files/webgazer.js"></script><canvas width="11px" height="781px" id="renderCanvas" style="display:none;"></canvas>
+        <script src="./WebGazer Demo_files/main.js"></script>
+        <script src="./WebGazer Demo_files/jquery.min.js"></script>
+        <script src="./WebGazer Demo_files/calibration.js"></script>
+        <script src="./WebGazer Demo_files/precision_calculation.js"></script>
+        <script src="./WebGazer Demo_files/precision_store_points.js"></script>
+        <script src="./WebGazer Demo_files/sweetalert.min.js"></script> 
+        <nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <!-- The hamburger menu button -->
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <!-- Accuracy -->
+                <li id="Accuracy"><a>Not yet Calibrated</a></li>
+                <li onclick="Restart()"><a href="https://webgazer.cs.brown.edu/demo.html?#">Recalibrate</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><button class="helpBtn" data-toggle="modal" data-target="#helpModal"><a href="https://webgazer.cs.brown.edu/demo.html?#" data-toggle="modal" data-targert="#"><span class="glyphicon glyphicon-cog"></span> Help</a></button></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Calibration points -->
+       <div class="calibrationDiv">
+            <input type="button" class="Calibration" id="Pt1">
+            <input type="button" class="Calibration" id="Pt2">
+            <input type="button" class="Calibration" id="Pt3">
+            <input type="button" class="Calibration" id="Pt4">
+            <input type="button" class="Calibration" id="Pt5">
+            <input type="button" class="Calibration" id="Pt6">
+            <input type="button" class="Calibration" id="Pt7">
+            <input type="button" class="Calibration" id="Pt8">
+            <input type="button" class="Calibration" id="Pt9">
+        </div>
+
+        <!-- Modal -->
+        <div id="helpModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="./WebGazer Demo_files/webgazer.png" width="100%" height="100%" alt="webgazer demo instructions">
+              </div>
+              <div class="modal-footer">
+                <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="Restart()">Calibrate</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="./WebGazer Demo_files/resize_canvas.js"></script>
+        <script src="./WebGazer Demo_files/jquery.min(1).js"></script>
+        <script src="./WebGazer Demo_files/jquery-ui.min.js"></script>
+        <script src="./WebGazer Demo_files/bootstrap.min.js"></script>
+    
+
+<canvas width="11px" height="781px" id="renderCanvas" style="display:none;"></canvas><video id="webgazerVideoFeed" autoplay="" src="blob:https://webgazer.cs.brown.edu/d032bedc-4447-4d81-920f-8f821b061463" style="display: block; position: fixed; top: 0px; left: 0px; margin: 0px; background: rgb(34, 34, 34);" width="320" height="240"></video><canvas id="webgazerVideoCanvas" width="320" height="240" style="display: none;"></canvas><div style="position: fixed; z-index: 99999; left: -5px; top: -5px; width: 10px; height: 10px; background: red; display: block; border-radius: 100%; opacity: 0.7; transform: translate3d(150px, 439px, 0px);"></div><canvas id="overlay" width="320" height="240" style="position: fixed; top: 0px; left: 0px; margin: 0px;"></canvas><face_overlay id="faceOverlay" style="position: fixed; top: 59px; left: 107px; border: solid green;"></face_overlay></body></html>
