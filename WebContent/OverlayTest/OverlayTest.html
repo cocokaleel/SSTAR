@@ -45,7 +45,39 @@ function on() {
 function off() {
     document.getElementById("overlay").style.display = "none";
 }
+function storeCoordinate(xVal, yVal, array) {
+   array.push({x: xVal, y: yVal});
+}
+
+//function coordinate(x, y) {
+    //this.x = x;
+    //this.y = y;
+//}
+var coords = [];
+//var coords = new Array();
+var count = 0;
+for (var yy = 313; yy<490; yy++)
+{
+		for (var xx = 550; xx< 885; xx++)
+                {
+                    //coords.push(new coordinate(xx, yy));
+                    storeCoordinate(xx, yy, coords);
+                    coords[count].x == xx  
+					coords[count].y == yy   
+					count++;
+                }
+    
+ }
+
+
+for (i=0;i<coords.length;i++)
+{
+document.write(coords[i] );
+}
+
 </script>
      
+
 </body>
 </html> 
+
