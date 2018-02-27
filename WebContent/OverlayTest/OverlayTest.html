@@ -1,0 +1,95 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.Overlay {
+	background-image: url(https://s3-eu-west-1.amazonaws.com/pcs01.photocase.com/p/pjnujj5a/tza20qoe/photocasetza20qoe3.jpg?1451959020);
+	background-repeat: no-repeat;
+    background-position: center; 
+	}
+	
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 1000;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+    
+}
+	
+</style>
+</head>
+<body>
+
+<div id="overlay" onclick="off()" class="Overlay"></div>
+
+
+    <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+
+<div style="padding:20px">
+  <h2>Overlay</h2>
+  <p>Click to turn on an overlay effect.</p>
+  <button onclick="on()">Turn on overlay effect</button>
+</div>
+
+<script>
+function on() {
+	var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.rect(20, 20, 150, 100);
+    ctx.stroke();
+	document.getElementById("overlay").style.display = "block";
+	
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+function storeCoordinate(xVal, yVal, array) {
+   array.push({x: xVal, y: yVal});
+}
+
+//function coordinate(x, y) {
+    //this.x = x;
+    //this.y = y;
+//}
+var coords = [];
+//var coords = new Array();
+var count = 0;
+for (var yy = 313; yy<490; yy++)
+{
+		for (var xx = 550; xx< 885; xx++)
+                {
+                    //coords.push(new coordinate(xx, yy));
+                    storeCoordinate(xx, yy, coords);
+                    coords[count].x == xx  
+					coords[count].y == yy   
+					count++;
+                }
+    
+ }
+
+
+for (i=0;i<coords.length;i++)
+{
+document.write(coords[i] );
+}
+
+</script>
+     
+
+</body>
+</html> 
+
+>>>>>>> 6e77a39872b1c9af77f751263afd7c1615b2aeec
